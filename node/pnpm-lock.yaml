@@ -1,0 +1,39 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  '@t3-oss/env-core':
+    specifier: ^0.7.0
+    version: 0.7.0(zod@3.22.4)
+  dotenv:
+    specifier: ^16.3.1
+    version: 16.3.1
+  zod:
+    specifier: ^3.22.4
+    version: 3.22.4
+
+packages:
+
+  /@t3-oss/env-core@0.7.0(zod@3.22.4):
+    resolution: {integrity: sha512-cgunN82CqgQOOyuMOK/bGtujX5/ooXQTwGMJVWI6mCowq6WE5EgRLOqF/DRcrElI0gSFGA9i9GrxzCnk73HZLQ==}
+    peerDependencies:
+      typescript: '>=4.7.2'
+      zod: ^3.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      zod: 3.22.4
+    dev: false
+
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+    dev: false

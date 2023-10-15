@@ -158,7 +158,7 @@ def construct_discord_data(mode, ranking, prev_dt, now):
 
             embed_field = {
                 "name": "||\n||",
-                "value": buf.replace("*", "\*"),  # escape italic
+                "value": buf.replace("*", "\\*"),  # escape italic
                 "inline": False,
             }
             embed["fields"].append(embed_field)
