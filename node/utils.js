@@ -31,25 +31,25 @@ osu_mode = {
     "icon": "https://i.ppy.sh/abd6cb4889b2d418fb303a5137090bf2aea922b9/68747470733a2f2f6f73752e7070792e73682f68656c702f77696b692f536b696e6e696e672f496e746572666163652f696d672f6d6f64652d6f73752d6d65642e706e67",
     "color": 0xFF2D00,
     "text": "osu!standard",
-    "discord_channel": ${JSON.stringify(env.CHANNEL_IDS_OSU)},
+    "discord_channel": [${env.CHANNEL_IDS_OSU.join(', ')}],
   },
   "taiko": {
     "icon": "https://i.ppy.sh/5524006ee3d7c598c6b6462b84f9a2f8fbc1516e/68747470733a2f2f6f73752e7070792e73682f68656c702f77696b692f536b696e6e696e672f496e746572666163652f696d672f6d6f64652d7461696b6f2d6d65642e706e67",
     "color": 0x46FF00,
     "text": "osu!taiko",
-    "discord_channel": ${JSON.stringify(env.CHANNEL_IDS_TAIKO)},
+    "discord_channel": [${env.CHANNEL_IDS_TAIKO.join(', ')}],
   },
   "fruits": {
     "icon": "https://i.ppy.sh/2c30813a0dc967ff0cc960d6e6cc79620f221f41/68747470733a2f2f6f73752e7070792e73682f68656c702f77696b692f536b696e6e696e672f496e746572666163652f696d672f6d6f64652d6672756974732d6d65642e706e67",
     "color": 0x00FFEC,
     "text": "osu!catch",
-    "discord_channel": ${JSON.stringify(env.CHANNEL_IDS_CATCH)},
+    "discord_channel": [${env.CHANNEL_IDS_CATCH.join(', ')}],
   },
   "mania": {
     "icon": "https://i.ppy.sh/000bf1b2a22600864fd0ee9900acc21420397781/68747470733a2f2f6f73752e7070792e73682f68656c702f77696b692f536b696e6e696e672f496e746572666163652f696d672f6d6f64652d6d616e69612d6d65642e706e67",
     "color": 0xD500FF,
     "text": "osu!mania",
-    "discord_channel": ${JSON.stringify(env.CHANNEL_IDS_MANIA)},
+    "discord_channel": [${env.CHANNEL_IDS_MANIA.join(', ')}],
   },
 }
 `);
