@@ -57,7 +57,7 @@ def get_current_osu_ranking(mode):
     current_ranking = []
     for i in range(config.top_N):
         user = ranking[i]
-        user_best = api.get_user_best(user["user"]["id"])
+        user_best = api.get_user_best(user["user"]["id"], mode=mode)
         user_best = sorted(user_best, key=itemgetter("pp"), reverse=True)
         user_stats = {
             "pp": user["pp"],
