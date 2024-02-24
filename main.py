@@ -9,6 +9,7 @@ from oauth2 import OAuth2
 from osuAPI import osuAPI
 import config
 import utils
+import copy
 
 
 def get_data_dir():
@@ -146,7 +147,7 @@ def construct_discord_data(mode, ranking, prev_dt, now):
                 "icon_url": r["avatar_url"],
             },
             "color": config.osu_mode[mode]["color"],
-            "fields": [],
+            "description": "",
         }
 
         for s in r["scores"]:
@@ -154,16 +155,15 @@ def construct_discord_data(mode, ranking, prev_dt, now):
             mods += ",".join(s["mods"]) + " "
             buf = f"{s['rank']} | {s['pp']}pp | "
             buf += f"[{s['artist']} - {s['title']} [{s['version']}]]({s['url']})"
-            buf += f"{mods}({s['acc']:.2%})"
-
-            embed_field = {
-                "name": "||\n||",
-                "value": buf.replace("*", "\\*"),  # escape italic
-                "inline": False,
-            }
-            embed["fields"].append(embed_field)
-
-        embeds.append(embed)
+            buf += f"{mods}({s['acc']:.2%})\n".replace("*", "\\*")  # escape italic
+            if len(embed["description"]) + len(buf) > 4096:
+                embeds.append(embed)
+                embed = copy.deepcopy(embed)
+                embed["description"] = ""
+                del embed["author"]
+            embed["description"] += buf
+        if embed["description"]:
+            embeds.append(embed)
 
     # no scores
     if len(embeds) == 1:
