@@ -53,6 +53,11 @@ def create_osu_api_instance():
 def get_current_osu_ranking(mode):
     api = create_osu_api_instance()
     ranking = api.get_ranking(mode=mode, country=config.country)
+
+    while len(ranking['ranking']) < config.top_N:
+        result = api.get_ranking(mode=mode, country=config.country, page=ranking['cursor']['page'])
+        result['ranking'] += ranking['ranking']
+        ranking = result
     ranking = sorted(ranking["ranking"], key=itemgetter("pp"), reverse=True)
 
     current_ranking = []
@@ -161,6 +166,7 @@ def construct_discord_data(mode, ranking, prev_dt, now):
                 embed = copy.deepcopy(embed)
                 embed["description"] = ""
                 del embed["author"]
+                # embed.pop("author", None)
             embed["description"] += buf
         if embed["description"]:
             embeds.append(embed)
