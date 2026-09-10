@@ -6,7 +6,7 @@ RUN pip3 install -r requirements.txt
 
 WORKDIR /app/node
 COPY node/pnpm-lock.yaml pnpm-lock.yaml
-RUN npm i -g pnpm && pnpm fetch
+RUN npm i -g pnpm@8 && pnpm fetch
 COPY node/package.json package.json
 RUN pnpm i
 
